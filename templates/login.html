@@ -1,0 +1,75 @@
+
+{% extends 'base.html '%}
+{% load static %}
+{% block content %}
+
+
+	<!-- Search -->
+
+	<div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_title">Search for your trip</div>
+						<div class="home_search_content">
+							<form action="#" class="home_search_form" id="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									<input type="text" class="search_input search_input_1" placeholder="City" required="required">
+									<input type="text" class="search_input search_input_2" placeholder="Departure" required="required">
+									<input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">
+									<input type="text" class="search_input search_input_4" placeholder="Budget" required="required">
+									<button class="home_search_button">search</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contact -->
+
+	<div class="contact">
+		<div class="container">
+			<div class="row">
+
+				<!-- Get in touch -->
+				<div class="col-lg-6">
+					<div class="contact_content">
+						<div class="contact_title">Login</div>
+						<div class="contact_text">
+						</div>
+						<div class="contact_list">
+                            {% for message in messages %}
+                            <h2>{{message}}</h2>
+
+                            {% endfor %}
+							<form action="{% url 'accounts:login' %}" method="post" id="contact_form" class="contact_form">
+                                {% csrf_token %}
+                                <div style="margin-bottom: 18px"><input type="text" class="contact_input contact_input_name inpt" placeholder="Enter Username" name="username" required="required"><div class="input_border"></div></div>
+                             
+                                <div style="margin-bottom: 18px"><input type="password" class="contact_input contact_input_name inpt" placeholder="Enter Password" name="password" required="required"><div class="input_border"></div></div>
+                             
+                              
+                                <button  type="submit" class="contact_button">Submit</button>
+                            </form>
+						</div>
+					</div>
+				</div>
+
+				<!-- Contact Form -->
+				<div class="col-lg-6">
+					<div class="contact_form_container">
+				
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Map -->
+
+
+	{% endblock %}
